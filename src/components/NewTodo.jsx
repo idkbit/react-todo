@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import TodosContext from "../TodosContext";
 import { v4 as uuid } from "uuid";
+import { Form, Input, Label } from "./NewTodoStyles";
 
 const NewTodo = () => {
   const { todos, setTodos } = useContext(TodosContext);
@@ -16,19 +17,22 @@ const NewTodo = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label htmlFor="completed"></label>
-      <input
-        checked={isCompleted}
-        onChange={() => setIsCompleted(!isCompleted)}
-        type="checkbox"
-      />
-      <input
+    <Form onSubmit={onSubmit}>
+      <Label>
+        <input
+          checked={isCompleted}
+          onChange={() => setIsCompleted(!isCompleted)}
+          type="checkbox"
+        />
+        <span></span>
+      </Label>
+      <Input
         value={text}
         onChange={(e) => setText(e.target.value)}
         type="text"
+        placeholder="Create a new todo..."
       />
-    </form>
+    </Form>
   );
 };
 
