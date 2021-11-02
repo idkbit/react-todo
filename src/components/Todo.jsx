@@ -20,13 +20,13 @@ const Todo = ({ text, isCompleted, id }) => {
   }, [isDone, id, setTodos, text]);
 
   return (
-    <div>
+    <li>
       <label>
         <input checked={isDone} onChange={onChange} type="checkbox" />
         <span>{text}</span>
       </label>
       <button onClick={onDeleteClick}>del</button>
-    </div>
+    </li>
   );
 };
 

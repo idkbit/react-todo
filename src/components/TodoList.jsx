@@ -19,7 +19,7 @@ const TodoList = () => {
   });
   return (
     <main>
-      <div>{renderedTodos}</div>
+      <ul>{renderedTodos}</ul>
       <div className="bot">
         <div className="left">{todos.length} items left</div>
         <div className="buttons">
