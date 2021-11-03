@@ -21,6 +21,7 @@ export const StyledButtons = styled.div`
     background-color: transparent;
     border: none;
     color: ${(props) => props.theme.buttonColor};
+    font-weight: 700;
     font-family: inherit;
     font-size: 1rem;
     &.active {

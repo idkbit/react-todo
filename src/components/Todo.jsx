@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import TodosContext from "../TodosContext";
+import { Label, TodoStyled } from "./TodoStyled";
+import imgCross from "../images/icon-cross.svg";
 
 const Todo = ({ text, isCompleted, id }) => {
   const { todos, setTodos } = useContext(TodosContext);
@@ -20,13 +22,15 @@ const Todo = ({ text, isCompleted, id }) => {
   }, [isDone, id, setTodos, text]);
 
   return (
-    <li>
-      <label>
+    <TodoStyled>
+      <Label>
         <input checked={isDone} onChange={onChange} type="checkbox" />
-        <span>{text}</span>
-      </label>
-      <button onClick={onDeleteClick}>del</button>
-    </li>
+        <span></span>
+        <p>{text}</p>
+      </Label>
+
+      <button onClick={onDeleteClick}></button>
+    </TodoStyled>
   );
 };
 

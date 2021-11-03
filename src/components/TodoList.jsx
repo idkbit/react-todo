@@ -5,7 +5,7 @@ import Todo from "./Todo";
 import { List, StyledTodoList, TodoListFooter } from "./TodoListStyles";
 
 const TodoList = () => {
-  const { todos, setTodos, filter, setFilter } = useContext(TodosContext);
+  const { todos, setTodos, filter } = useContext(TodosContext);
 
   const renderedTodos = todos.map(({ text, isCompleted, id }) => {
     if (filter === "all") {
