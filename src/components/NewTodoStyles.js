@@ -9,43 +9,52 @@ export const Form = styled.form`
   align-items: center;
 `;
 
-export const Label = styled.label`
-  display: inline-block;
-  background-color: transparent;
-  width: 2rem;
-  height: 2rem;
-  border: 3px solid ${(props) => props.theme.borderColor};
+export const Circle = styled.div`
+  min-height: 30px;
+  min-width: 30px;
+  margin-right: 0.5rem;
   border-radius: 50%;
-  position: relative;
-  input {
-    appearance: none;
-  }
-  span {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: transparent;
-    position: absolute;
-  }
-  input:checked + span {
-    background: linear-gradient(
-      120deg,
-      hsl(192, 100%, 67%),
-      hsl(280, 87%, 65%)
-    );
-    &::after {
-      content: "";
-      background-image: url(${checked});
-      background-repeat: no-repeat;
-      background-size: 15px;
-      background-position: center;
-      position: absolute;
-      inset: 0;
-      border-color: transparent;
-    }
-  }
+  background-color: transparent;
+  border: 3px solid ${({ theme: { borderColor } }) => borderColor};
 `;
+
+// export const Label = styled.label`
+//   display: inline-block;
+//   background-color: transparent;
+//   width: 2rem;
+//   height: 2rem;
+//   border: 3px solid ${(props) => props.theme.borderColor};
+//   border-radius: 50%;
+//   position: relative;
+//   input {
+//     appearance: none;
+//   }
+//   span {
+//     display: inline-block;
+//     width: 100%;
+//     height: 100%;
+//     border-radius: 50%;
+//     background-color: transparent;
+//     position: absolute;
+//   }
+//   input:checked + span {
+//     background: linear-gradient(
+//       120deg,
+//       hsl(192, 100%, 67%),
+//       hsl(280, 87%, 65%)
+//     );
+//     &::after {
+//       content: "";
+//       background-image: url(${checked});
+//       background-repeat: no-repeat;
+//       background-size: 15px;
+//       background-position: center;
+//       position: absolute;
+//       inset: 0;
+//       border-color: transparent;
+//     }
+//   }
+// `;
 
 export const Input = styled.input`
   background-color: transparent;

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import TodosContext from "../TodosContext";
 import { v4 as uuid } from "uuid";
-import { Form, Input, Label } from "./NewTodoStyles";
+import { Circle, Form, Input } from "./NewTodoStyles";
 
 const NewTodo = () => {
   const { todos, setTodos } = useContext(TodosContext);
@@ -18,14 +18,7 @@ const NewTodo = () => {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Label>
-        <input
-          checked={isCompleted}
-          onChange={() => setIsCompleted(!isCompleted)}
-          type="checkbox"
-        />
-        <span></span>
-      </Label>
+      <Circle />
       <Input
         value={text}
         onChange={(e) => setText(e.target.value)}

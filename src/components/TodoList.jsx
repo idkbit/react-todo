@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import TodosContext from "../TodosContext";
+import Buttons from "./Buttons";
 import Todo from "./Todo";
+import { List, StyledTodoList, TodoListFooter } from "./TodoListStyles";
 
 const TodoList = () => {
   const { todos, setTodos, filter, setFilter } = useContext(TodosContext);
@@ -18,23 +20,19 @@ const TodoList = () => {
     return null;
   });
   return (
-    <main>
-      <ul>{renderedTodos}</ul>
-      <div className="bot">
-        <div className="left">{todos.length} items left</div>
-        <div className="buttons">
-          <button onClick={() => setFilter("all")}>All</button>
-          <button onClick={() => setFilter("active")}>Active</button>
-          <button onClick={() => setFilter("completed")}>Completed</button>
-        </div>
+    <StyledTodoList>
+      <List>{renderedTodos}</List>
+      <TodoListFooter>
+        <div className="items-left">{todos.length} items left</div>
+        <Buttons />
         <div className="clear">
           <button
             onClick={() => setTodos(todos.filter((todo) => !todo.isCompleted))}>
             Clear completed
           </button>
         </div>
-      </div>
-    </main>
+      </TodoListFooter>
+    </StyledTodoList>
   );
 };
 

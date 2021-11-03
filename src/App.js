@@ -7,6 +7,10 @@ import { darkTheme, lightTheme } from "./themes";
 import NewTodo from "./components/NewTodo";
 import TodoList from "./components/TodoList";
 
+import moon from "./images/icon-moon.svg";
+import sun from "./images/icon-sun.svg";
+import Buttons from "./components/Buttons";
+
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
@@ -23,12 +27,16 @@ const App = () => {
               <button
                 tabIndex="0"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-                {theme}
+                <img
+                  src={theme === "dark" ? sun : moon}
+                  alt={`Change theme to ${theme === "dark" ? "light" : "dark"}`}
+                />
               </button>
             </Header>
             <NewTodo />
             <TodoList />
           </Container>
+          <Buttons className="buttons-mobile" />
         </Wrapper>
       </ThemeProvider>
     </TodosContext.Provider>
