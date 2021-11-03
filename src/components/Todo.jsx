@@ -24,8 +24,10 @@ const Todo = ({ text, isCompleted, id }) => {
   return (
     <TodoStyled>
       <Label>
-        <input checked={isDone} onChange={onChange} type="checkbox" />
-        <span></span>
+        <div className="gradient">
+          <input checked={isDone} onChange={onChange} type="checkbox" />
+          <span></span>
+        </div>
         <p>{text}</p>
       </Label>
 

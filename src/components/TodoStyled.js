@@ -30,33 +30,39 @@ export const TodoStyled = styled.li`
 `;
 
 export const Label = styled.label`
-  position: relative;
   display: flex;
   align-items: flex-end;
-  padding-left: 4rem;
   width: 100%;
   &:hover + button {
     opacity: 1;
   }
+  .gradient {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: ${(props) => props.theme.borderColor};
+    display: grid;
+    place-content: center;
+    &:focus-within {
+      background-image: linear-gradient(
+        to right,
+        hsl(192, 100%, 67%),
+        hsl(280, 87%, 65%)
+      );
+    }
+  }
   input {
     appearance: none;
-    &:focus + span {
-      border: 3px solid hsl(192, 100%, 67%);
-    }
   }
   span {
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    border: 3px solid ${(props) => props.theme.borderColor};
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    background-color: transparent;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: translateY(-25%);
+    background-color: ${(props) => props.theme.bgTodolist};
   }
-  input:checked + span {
+  .gradient input:checked + span {
     background: linear-gradient(
       120deg,
       hsl(192, 100%, 67%),
@@ -72,5 +78,8 @@ export const Label = styled.label`
       inset: 0;
       border-color: transparent;
     }
+  }
+  p {
+    margin-left: 1.5rem;
   }
 `;
