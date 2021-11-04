@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { forwardRef, useContext, useEffect, useState } from "react";
 import { setLocalStorage } from "../localStorage";
 import TodosContext from "../TodosContext";
 import { Label, TodoStyled } from "./TodoStyled";
 
-const Todo = ({ text, isCompleted, id }) => {
+const Todo = forwardRef(({ text, isCompleted, id, ...props }, ref) => {
   const { todos, setTodos } = useContext(TodosContext);
   const [isDone, setIsDone] = useState(isCompleted);
   const onChange = (e) => {
@@ -25,7 +25,7 @@ const Todo = ({ text, isCompleted, id }) => {
   }, [todos]);
 
   return (
-    <TodoStyled>
+    <TodoStyled {...props} ref={ref}>
       <Label className={isDone ? "checked" : ""}>
         <div className="gradient">
           <input checked={isDone} onChange={onChange} type="checkbox" />
@@ -37,6 +37,6 @@ const Todo = ({ text, isCompleted, id }) => {
       <button onClick={onDeleteClick}></button>
     </TodoStyled>
   );
-};
+});
 
 export default Todo;

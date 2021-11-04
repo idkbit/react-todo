@@ -4,24 +4,87 @@ import Buttons from "./Buttons";
 import Todo from "./Todo";
 import { List, StyledTodoList, TodoListFooter } from "./TodoListStyles";
 
+// Drag and drop
+
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 const TodoList = () => {
   const { todos, setTodos, filter } = useContext(TodosContext);
 
-  const renderedTodos = todos.map(({ text, isCompleted, id }) => {
+  const renderedTodos = todos.map(({ text, isCompleted, id }, index) => {
     if (filter === "all") {
-      return <Todo key={id} text={text} isCompleted={isCompleted} id={id} />;
+      return (
+        <Draggable key={id} draggableId={id} index={index}>
+          {(provided) => (
+            <Todo
+              {...provided.draggableProps}
+              ref={provided.innerRef}
+              {...provided.dragHandleProps}
+              text={text}
+              isCompleted={isCompleted}
+              id={id}
+            />
+          )}
+        </Draggable>
+      );
     }
     if (filter === "active" && !isCompleted) {
-      return <Todo key={id} text={text} isCompleted={isCompleted} id={id} />;
+      return (
+        <Draggable key={id} draggableId={id} index={index}>
+          {(provided) => (
+            <Todo
+              {...provided.draggableProps}
+              ref={provided.innerRef}
+              {...provided.dragHandleProps}
+              text={text}
+              isCompleted={isCompleted}
+              id={id}
+            />
+          )}
+        </Draggable>
+      );
     }
     if (filter === "completed" && isCompleted) {
-      return <Todo key={id} text={text} isCompleted={isCompleted} id={id} />;
+      return (
+        <Draggable key={id} draggableId={id} index={index}>
+          {(provided) => (
+            <Todo
+              {...provided.draggableProps}
+              ref={provided.innerRef}
+              {...provided.dragHandleProps}
+              text={text}
+              isCompleted={isCompleted}
+              id={id}
+            />
+          )}
+        </Draggable>
+      );
     }
     return null;
   });
+
+  const handleDragEnd = (result) => {
+    if (!result.destination) return;
+    const items = Array.from(todos);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setTodos(items);
+  };
+
   return (
     <StyledTodoList>
-      <List>{renderedTodos}</List>
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId="todos">
+          {(provided) => (
+            <List {...provided.droppableProps} ref={provided.innerRef}>
+              {renderedTodos}
+              {provided.placeholder}
+            </List>
+          )}
+        </Droppable>
+      </DragDropContext>
+
       <TodoListFooter>
         <div className="items-left">{todos.length} items left</div>
         <Buttons />
