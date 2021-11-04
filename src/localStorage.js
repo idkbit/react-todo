@@ -1,5 +1,5 @@
 export const setTodosLocalStorage = (todos) => {
-  return localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem("todos", JSON.stringify(todos));
 };
 
 export const getTodosLocalStorage = () => {
@@ -7,9 +7,17 @@ export const getTodosLocalStorage = () => {
 };
 
 export const setThemeLocalStorage = (theme) => {
-  return localStorage.setItem("theme", theme);
+  localStorage.setItem("theme", theme);
 };
 
 export const getThemeLocalStorage = () => {
   return localStorage.getItem("theme");
+};
+
+export const setFilterLocalStorage = (filter) => {
+  localStorage.setItem("filter", filter);
+};
+
+export const getFilterLocalStorage = () => {
+  return localStorage.getItem("filter");
 };

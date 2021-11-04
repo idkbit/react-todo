@@ -12,22 +12,29 @@ import sun from "./images/icon-sun.svg";
 import Buttons from "./components/Buttons";
 
 import {
+  getFilterLocalStorage,
   getThemeLocalStorage,
   getTodosLocalStorage,
+  setFilterLocalStorage,
   setThemeLocalStorage,
 } from "./localStorage";
 
 const initialTodos = getTodosLocalStorage();
 const initialTheme = getThemeLocalStorage();
+const initialFilter = getFilterLocalStorage();
 
 const App = () => {
   const [todos, setTodos] = useState(initialTodos || []);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState(initialFilter || "all");
   const [theme, setTheme] = useState(initialTheme || "dark");
 
   useEffect(() => {
     setThemeLocalStorage(theme);
   }, [theme]);
+
+  useEffect(() => {
+    setFilterLocalStorage(filter);
+  }, [filter]);
 
   return (
     <TodosContext.Provider value={{ todos, setTodos, filter, setFilter }}>

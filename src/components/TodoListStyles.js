@@ -5,6 +5,7 @@ export const StyledTodoList = styled.main`
   margin-top: 2rem;
   border-radius: 5px;
   font-size: 1.125rem;
+  overflow: hidden;
   ${(props) =>
     props.theme.boxShadow ? "box-shadow: 0 0 15px 1px rgba(0,0,0,.1)" : ""}
 `;

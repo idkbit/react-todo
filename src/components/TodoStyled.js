@@ -5,6 +5,7 @@ import cross from "../images/icon-cross.svg";
 export const TodoStyled = styled.li`
   display: flex;
   justify-content: space-between;
+  background-color: ${(props) => props.theme.bgTodolist};
   align-items: flex-end;
   padding: 1rem;
   align-items: flex-end;
