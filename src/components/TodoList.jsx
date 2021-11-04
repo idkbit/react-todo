@@ -4,61 +4,34 @@ import Buttons from "./Buttons";
 import Todo from "./Todo";
 import { List, StyledTodoList, TodoListFooter } from "./TodoListStyles";
 
-// Drag and drop
-
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const TodoList = () => {
   const { todos, setTodos, filter } = useContext(TodosContext);
+  const renderTodo = ({ text, isCompleted, id }, index) => (
+    <Draggable key={id} draggableId={id} index={index}>
+      {(provided) => (
+        <Todo
+          {...provided.draggableProps}
+          ref={provided.innerRef}
+          {...provided.dragHandleProps}
+          text={text}
+          isCompleted={isCompleted}
+          id={id}
+        />
+      )}
+    </Draggable>
+  );
 
   const renderedTodos = todos.map(({ text, isCompleted, id }, index) => {
     if (filter === "all") {
-      return (
-        <Draggable key={id} draggableId={id} index={index}>
-          {(provided) => (
-            <Todo
-              {...provided.draggableProps}
-              ref={provided.innerRef}
-              {...provided.dragHandleProps}
-              text={text}
-              isCompleted={isCompleted}
-              id={id}
-            />
-          )}
-        </Draggable>
-      );
+      return renderTodo({ text, isCompleted, id }, index);
     }
     if (filter === "active" && !isCompleted) {
-      return (
-        <Draggable key={id} draggableId={id} index={index}>
-          {(provided) => (
-            <Todo
-              {...provided.draggableProps}
-              ref={provided.innerRef}
-              {...provided.dragHandleProps}
-              text={text}
-              isCompleted={isCompleted}
-              id={id}
-            />
-          )}
-        </Draggable>
-      );
+      return renderTodo({ text, isCompleted, id }, index);
     }
     if (filter === "completed" && isCompleted) {
-      return (
-        <Draggable key={id} draggableId={id} index={index}>
-          {(provided) => (
-            <Todo
-              {...provided.draggableProps}
-              ref={provided.innerRef}
-              {...provided.dragHandleProps}
-              text={text}
-              isCompleted={isCompleted}
-              id={id}
-            />
-          )}
-        </Draggable>
-      );
+      return renderTodo({ text, isCompleted, id }, index);
     }
     return null;
   });

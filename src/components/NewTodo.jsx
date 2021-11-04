@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import TodosContext from "../TodosContext";
 import { v4 as uuid } from "uuid";
 import { Circle, Form, Input } from "./NewTodoStyles";
-import { setLocalStorage } from "../localStorage";
+import { setTodosLocalStorage } from "../localStorage";
 
 const NewTodo = () => {
   const { todos, setTodos } = useContext(TodosContext);
@@ -19,7 +19,7 @@ const NewTodo = () => {
   };
 
   useEffect(() => {
-    setLocalStorage(todos);
+    setTodosLocalStorage(todos);
   }, [todos]);
 
   return (

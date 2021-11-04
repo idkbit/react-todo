@@ -15,6 +15,7 @@ export const darkTheme = {
   itemsLeft: "hsl(234, 11%, 52%)",
   buttonColor: "hsl(233, 14%, 35%)",
   buttonHover: "#fff",
+  dndColor: "hsl(233, 14%, 35%)",
 };
 
 export const lightTheme = {
@@ -30,4 +31,5 @@ export const lightTheme = {
   buttonColor: "hsl(236, 9%, 61%)",
   buttonHover: "hsl(235, 19%, 35%)",
   boxShadow: "0 0 3px 3px rgba(0,0,0,.2)",
+  dndColor: "hsl(236, 9%, 61%)",
 };

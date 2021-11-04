@@ -7,7 +7,7 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   ${(props) =>
-    props.theme.boxShadow ? "box-shadow: 0 0 3px 3px rgba(0,0,0,.2)" : ""}
+    props.theme.boxShadow ? "box-shadow: 0 0 15px 1px rgba(0,0,0,.1)" : ""}
 `;
 
 export const Circle = styled.div`

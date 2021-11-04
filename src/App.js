@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Container, Header, Wrapper } from "./styles";
+import { useEffect, useState } from "react";
+import { Container, DnDNotification, Header, Wrapper } from "./styles";
 import TodosContext from "./TodosContext";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./GlobalStyles";
@@ -11,12 +11,23 @@ import moon from "./images/icon-moon.svg";
 import sun from "./images/icon-sun.svg";
 import Buttons from "./components/Buttons";
 
-import { getLocalStorage } from "./localStorage";
+import {
+  getThemeLocalStorage,
+  getTodosLocalStorage,
+  setThemeLocalStorage,
+} from "./localStorage";
+
+const initialTodos = getTodosLocalStorage();
+const initialTheme = getThemeLocalStorage();
 
 const App = () => {
-  const [todos, setTodos] = useState(getLocalStorage() || []);
+  const [todos, setTodos] = useState(initialTodos || []);
   const [filter, setFilter] = useState("all");
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(initialTheme || "dark");
+
+  useEffect(() => {
+    setThemeLocalStorage(theme);
+  }, [theme]);
 
   return (
     <TodosContext.Provider value={{ todos, setTodos, filter, setFilter }}>
@@ -37,6 +48,7 @@ const App = () => {
             </Header>
             <NewTodo />
             <TodoList />
+            <DnDNotification>Drag and drop to reorder list</DnDNotification>
           </Container>
           <Buttons className="buttons-mobile" />
         </Wrapper>

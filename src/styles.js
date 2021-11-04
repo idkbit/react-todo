@@ -30,5 +30,17 @@ export const Header = styled.header`
   button {
     background: transparent;
     border: none;
+    & > img {
+      width: 30px;
+      height: 30px;
+    }
   }
+`;
+
+export const DnDNotification = styled.p`
+  color: ${(props) => props.theme.dndColor};
+  text-align: center;
+  margin-top: 3rem;
+  font-weight: 700;
+  font-size: 0.85rem;
 `;
