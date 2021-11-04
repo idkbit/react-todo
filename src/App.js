@@ -11,8 +11,10 @@ import moon from "./images/icon-moon.svg";
 import sun from "./images/icon-sun.svg";
 import Buttons from "./components/Buttons";
 
+import { getLocalStorage } from "./localStorage";
+
 const App = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(getLocalStorage() || []);
   const [filter, setFilter] = useState("all");
   const [theme, setTheme] = useState("dark");
 

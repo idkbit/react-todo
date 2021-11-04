@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
+import { setLocalStorage } from "../localStorage";
 import TodosContext from "../TodosContext";
 import { Label, TodoStyled } from "./TodoStyled";
-import imgCross from "../images/icon-cross.svg";
 
 const Todo = ({ text, isCompleted, id }) => {
   const { todos, setTodos } = useContext(TodosContext);
@@ -18,12 +18,15 @@ const Todo = ({ text, isCompleted, id }) => {
     const editedTodo = { text, isCompleted: isDone, id };
     const newTodos = todos.map((todo) => (todo.id === id ? editedTodo : todo));
     setTodos(newTodos);
-    //linter says i need to add 'todos' array to dependecies but it causes infite rerender
   }, [isDone, id, setTodos, text]);
+
+  useEffect(() => {
+    setLocalStorage(todos);
+  }, [todos]);
 
   return (
     <TodoStyled>
-      <Label>
+      <Label className={isDone ? "checked" : ""}>
         <div className="gradient">
           <input checked={isDone} onChange={onChange} type="checkbox" />
           <span></span>

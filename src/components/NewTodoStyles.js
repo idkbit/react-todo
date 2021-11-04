@@ -6,15 +6,17 @@ export const Form = styled.form`
   border-radius: 5px;
   display: flex;
   align-items: center;
+  ${(props) =>
+    props.theme.boxShadow ? "box-shadow: 0 0 3px 3px rgba(0,0,0,.2)" : ""}
 `;
 
 export const Circle = styled.div`
-  min-height: 30px;
-  min-width: 30px;
+  min-height: 26px;
+  min-width: 26px;
   margin-right: 0.5rem;
   border-radius: 50%;
   background-color: transparent;
-  border: 3px solid ${({ theme: { borderColor } }) => borderColor};
+  border: 1px solid ${({ theme: { borderColor } }) => borderColor};
 `;
 
 export const Input = styled.input`

@@ -33,18 +33,20 @@ export const Label = styled.label`
   display: flex;
   align-items: flex-end;
   width: 100%;
+  cursor: pointer;
   &:hover + button {
     opacity: 1;
   }
   .gradient {
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     background-color: ${(props) => props.theme.borderColor};
     display: grid;
     place-content: center;
-    &:focus-within {
+    &:focus-within,
+    &:hover {
       background-image: linear-gradient(
         to right,
         hsl(192, 100%, 67%),
@@ -81,5 +83,9 @@ export const Label = styled.label`
   }
   p {
     margin-left: 1.5rem;
+  }
+  &.checked {
+    text-decoration: line-through;
+    color: ${(props) => props.theme.passiveColor};
   }
 `;

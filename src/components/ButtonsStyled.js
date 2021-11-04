@@ -24,11 +24,15 @@ export const StyledButtons = styled.div`
     font-weight: 700;
     font-family: inherit;
     font-size: 1rem;
+    transition: color 0.3s ease;
     &.active {
       color: hsl(220, 98%, 61%);
     }
     &:not(:last-child) {
       margin-right: 1rem;
+    }
+    &:not(.active):hover {
+      color: ${(props) => props.theme.buttonHover};
     }
   }
 `;
