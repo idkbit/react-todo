@@ -46,8 +46,10 @@ const App = () => {
               <h1>todo</h1>
               <button
                 tabIndex="0"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label="change color theme.">
                 <img
+                  preload
                   src={theme === "dark" ? sun : moon}
                   alt={`Change theme to ${theme === "dark" ? "light" : "dark"}`}
                 />

@@ -34,7 +34,7 @@ const Todo = forwardRef(({ text, isCompleted, id, ...props }, ref) => {
         <p>{text}</p>
       </Label>
 
-      <button onClick={onDeleteClick}></button>
+      <button onClick={onDeleteClick} aria-label="delete."></button>
     </TodoStyled>
   );
 });
