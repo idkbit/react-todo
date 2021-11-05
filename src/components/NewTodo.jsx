@@ -12,6 +12,10 @@ const NewTodo = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (!text) return;
+    if (!text.trim()) {
+      setText("");
+      return;
+    }
     const newTodos = [...todos, { text, isCompleted, id: uuid() }];
     setTodos(newTodos);
     setText("");
