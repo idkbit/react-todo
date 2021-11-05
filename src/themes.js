@@ -13,7 +13,7 @@ export const darkTheme = {
   borderColor: "hsl(237, 14%, 26%)",
   placeholder: "hsl(233, 14%, 35%)",
   itemsLeft: "hsl(234, 11%, 52%)",
-  buttonColor: "hsl(233, 14%, 35%)",
+  buttonColor: "hsl(234, 11%, 52%)",
   buttonHover: "#fff",
   dndColor: "hsl(233, 14%, 35%)",
 };
@@ -27,7 +27,7 @@ export const lightTheme = {
   bgTodolist: "#fff",
   borderColor: "hsl(236, 33%, 92%)",
   placeholder: "hsl(234, 11%, 52%)",
-  itemsLeft: "hsl(233, 11%, 84%)",
+  itemsLeft: "hsl(234, 11%, 52%)",
   buttonColor: "hsl(236, 9%, 61%)",
   buttonHover: "hsl(235, 19%, 35%)",
   boxShadow: "0 0 3px 3px rgba(0,0,0,.2)",
