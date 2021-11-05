@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Form = styled.form`
   background-color: ${(props) => props.theme.bgTodolist};
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -25,8 +25,9 @@ export const Input = styled.input`
   width: 100%;
   font-family: inherit;
   font-size: 1.125rem;
-  padding: 1rem;
+  padding: 0.5rem;
   color: ${(props) => props.theme.activeColor};
+  caret-color: hsl(220, 98%, 61%);
   &::placeholder {
     color: ${(props) => props.theme.placeholder};
   }
