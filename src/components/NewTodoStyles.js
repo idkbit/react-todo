@@ -34,6 +34,6 @@ export const Input = styled.input`
   &:focus {
     outline: none;
     border-style: dashed;
-    border-color: ${(props) => props.theme.activeColor};
+    border-color: hsl(220, 98%, 61%);
   }
 `;

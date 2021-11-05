@@ -88,5 +88,12 @@ export const Label = styled.label`
   &.checked {
     text-decoration: line-through;
     color: ${(props) => props.theme.passiveColor};
+    .gradient {
+      background-image: linear-gradient(
+        120deg,
+        hsl(192, 100%, 67%),
+        hsl(280, 87%, 65%)
+      );
+    }
   }
 `;
