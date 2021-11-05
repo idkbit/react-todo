@@ -55,9 +55,9 @@ const App = () => {
             </Header>
             <NewTodo />
             <TodoList />
+            <Buttons className="buttons-mobile" />
             <DnDNotification>Drag and drop to reorder list</DnDNotification>
           </Container>
-          <Buttons className="buttons-mobile" />
         </Wrapper>
       </ThemeProvider>
     </TodosContext.Provider>

@@ -1,7 +1,7 @@
 import { forwardRef, useContext, useEffect, useState } from "react";
 import { setTodosLocalStorage } from "../localStorage";
 import TodosContext from "../TodosContext";
-import { Label, TodoStyled } from "./TodoStyled";
+import { Label, TodoStyled } from "./TodoStyles";
 
 const Todo = forwardRef(({ text, isCompleted, id, ...props }, ref) => {
   const { todos, setTodos } = useContext(TodosContext);

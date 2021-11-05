@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledButtons = styled.div`
   display: flex;
-  @media (max-width: 400px) {
+  @media (max-width: 450px) {
     display: none;
   }
   &.buttons-mobile {
@@ -10,11 +10,13 @@ export const StyledButtons = styled.div`
     background-color: ${(props) => props.theme.bgTodolist};
     padding: 1rem;
     border-radius: 5px;
-    @media (max-width: 400px) {
+    @media (max-width: 450px) {
       display: flex;
       justify-content: center;
       width: 90vw;
       margin: 2rem auto 0;
+      ${(props) =>
+        props.theme.boxShadow ? "box-shadow: 0 0 15px 1px rgba(0,0,0,.1)" : ""}
     }
   }
   button {

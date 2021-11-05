@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import TodosContext from "../TodosContext";
-import { StyledButtons } from "./ButtonsStyled";
+import { StyledButtons } from "./ButtonsStyles";
 
 const Buttons = ({ className }) => {
   const { filter, setFilter } = useContext(TodosContext);

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Form = styled.form`
   background-color: ${(props) => props.theme.bgTodolist};
-  padding: 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   display: flex;
   align-items: center;
