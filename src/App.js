@@ -56,7 +56,9 @@ const App = () => {
             <NewTodo />
             <TodoList />
             <Buttons className="buttons-mobile" />
-            <DnDNotification>Drag and drop to reorder list</DnDNotification>
+            {todos.length > 0 && (
+              <DnDNotification>Drag and drop to reorder list</DnDNotification>
+            )}
           </Container>
         </Wrapper>
       </ThemeProvider>
