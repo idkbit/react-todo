@@ -6,9 +6,6 @@ import GlobalStyle from "./GlobalStyles";
 import { darkTheme, lightTheme } from "./themes";
 import NewTodo from "./components/NewTodo";
 import TodoList from "./components/TodoList";
-
-import moon from "./images/icon-moon.svg";
-import sun from "./images/icon-sun.svg";
 import Buttons from "./components/Buttons";
 
 import {
@@ -19,6 +16,8 @@ import {
   setThemeLocalStorage,
 } from "./localStorage";
 
+const moon = "./images/icon-moon.svg";
+const sun = "./images/icon-sun.svg";
 const initialTodos = getTodosLocalStorage();
 const initialTheme = getThemeLocalStorage();
 const initialFilter = getFilterLocalStorage();
@@ -49,7 +48,6 @@ const App = () => {
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 aria-label="change color theme.">
                 <img
-                  preload
                   src={theme === "dark" ? sun : moon}
                   alt={`Change theme to ${theme === "dark" ? "light" : "dark"}`}
                 />

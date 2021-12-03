@@ -1,7 +1,7 @@
-import bgImgDesktopDark from "./images/bg-desktop-dark.jpg";
-import bgImgDesktopLight from "./images/bg-desktop-light.jpg";
-import bgImgMobileDark from "./images/bg-mobile-dark.jpg";
-import bgImgMobileLight from "./images/bg-mobile-light.jpg";
+const bgImgDesktopDark = "./images/bg-desktop-dark.jpg";
+const bgImgDesktopLight = "./images/bg-desktop-light.jpg";
+const bgImgMobileDark = "./images/bg-mobile-dark.jpg";
+const bgImgMobileLight = "./images/bg-mobile-light.jpg";
 
 export const darkTheme = {
   bgColor: "hsl(235, 21%, 11%)",

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import checked from "../images/icon-check.svg";
-import cross from "../images/icon-cross.svg";
+const checked = "./images/icon-check.svg";
+const cross = "./images/icon-cross.svg";
 
 export const TodoStyled = styled.li`
   display: flex;
